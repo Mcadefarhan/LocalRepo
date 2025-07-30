@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      /* Navbar */
+      .navbar {
+        background-color: orangered;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: url('./farha.jpg') no-repeat center center/cover;
+        height: 100vh; 
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
+
+      /* Scroll Down Button */
+      .scroll-down {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: none;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      /* About Section */
+      .profile img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      span {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .section-title {
+        align-items: center;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+
+      /* Resume Section */
+      .resume .resume-title {
+        font-weight: 700;
+        font-size: 26px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .resume .resume-item {
+        padding: 0 0 20px 20px;
+        border-left: 2px solid aqua;
+        margin-top: -2px;
+        position: relative;
+      }
+
+      .resume .resume-item h5 {
+        line-height: 18px;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #666;
+      }
+
+      .resume .resume-item h6 {
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 5px 15px;
+      }
+
+      .resume .resume-item ul {
+        padding-bottom: 20px;
+      }
+
+      .resume .resume-item ul li {
+        padding-bottom: 10px;
+      }
+
+      .resume .resume-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .resume .resume-item::before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50px;
+        left: -9px;
+        top: 0;
+        background-color: aqua;
+        border: 2px solid aqua;
+      }
+
+      /* Skills Progress Animation */
+      .progress-bar {
+        width: 0;
+        transition: width 1.5s ease-in-out;
+      }
+
+      .service-box {
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.service-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #007bff;
+  transition: width 0.3s ease;
+  border-radius: 0 0 5px 5px;
+}
+
+.service-box:hover::after {
+  width: 100%;
+}
+
+.icon i {
+  background: #007bff;
+  color: #fff;
+  padding: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>I am Farhan Kalim</h1>
+        <h2>Web Developer</h2>
+      </div>
+      <a href="#about" class="scroll-down">⬇ Scroll Down</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about mt-5">
+      <div class="container bg-white shadow p-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6 profile">
+                <img src="./farha.jpg" alt="My Profile Picture" />
+              </div>
+              <div class="col-md-6">
+                <p><span>Name: </span>Md Farhan Kalim</p>
+                <p><span>Email: </span>farhankhan22eu@gmail.com</p>
+                <p><span>Phone: </span>+91 7091987466</p>
+                <p><span>Location: </span>Patna (Bihar)</p>
+              </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="skills py-5">
+              <h4>Skills</h4>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p>HTML</p>
+                  <p>100%</p>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-primary" data-width="100"></div>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <div class="d-flex justify-content-between">
+                  <p>CSS</p>
+                  <p>90%</p>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-success" data-width="90"></div>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <div class="d-flex justify-content-between">
+                  <p>JavaScript</p>
+                  <p>85%</p>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar bg-warning" data-width="85"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Me Text -->
+          <div class="col-md-6">
+            <h4 class="fw-900">About Me</h4>
+            <p class="pt-2">
+              Passionate Web Developer with internship experience in creating responsive and dynamic websites.
+              Proficient in front-end and back-end technologies and eager to contribute to real-world projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section py-5">
+      <div class="container section-title">
+        <h2>Resume</h2>
+        <p>Motivated computer science graduate with expertise in front-end and back-end development, eager to contribute to innovative web solutions.</p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <!-- Left Column -->
+          <div class="col-md-6">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item">
+              <h5>Md Farhan Kalim</h5>
+              <p>"Passionate Web Developer with hands-on internship experience in building responsive and user-friendly websites. Skilled in HTML, CSS, JavaScript, and modern development practices, with a strong focus on clean code and performance optimization. Eager to contribute technical expertise to dynamic projects and grow as a professional developer."</p>
+              <ul>
+                <li>Location:Patna (Bihar)</li>
+                <li>Phone: 7091987466</li>
+                <li>Email: farhankhan22eu@gmail.com</li>
+              </ul>
+            </div>
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h5>Master of Computer Application</h5>
+              <h6>2024 - present</h6>
+              <p><em>Teerthanker Mahaveer University, Moradabad</em></p>
+              <p>Pursuing MCA with specialization in web development, programming, and modern software technologies.</p>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="col-md-6">
+  <h3 class="resume-title"> EXPERIENCE(INTERNSHIP)</h3>
+
+  <!-- Java Developer -->
+  <div class="resume-item">
+    <h5>Java Developer</h5>
+    <h6>2025 - Present</h6>
+    <p>ByteNlearn</p>
+    <ul>
+      <li>Developed modern web applications.</li>
+      <li>Worked on responsive designs.</li>
+      <li>Optimized website performance.</li>
+    </ul>
+  </div>
+
+  <!-- Web Developer -->
+  <div class="resume-item">
+    <h5>Web Developer</h5>
+    <h6>2025 June-August</h6>
+    <p>Internshala(online)</p>
+    <ul>
+      <li>Built responsive and user-friendly websites using HTML, CSS, JavaScript.</li>
+      <li>Collaborated with designers to implement UI/UX features.</li>
+      <li>Improved site performance and SEO optimization.</li>
+    </ul>
+  </div>
+
+ </div>
+ <!-- ======= Services Section ======= -->
+<section id="services" class="services py-5">
+  <div class="container">
+
+    <div class="section-title text-center mb-5">
+      <h2>Services</h2>
+      <p>what can i help you?</p>
+    </div>
+
+    <div class="row">
+      <!-- Service Item 1 -->
+  <div class="col-md-4 mb-4">
+   <div class="service-box shadow p-4 rounded text-center">
+    <div class="icon mb-3 text-primary d-inline-flex align-items-center justify-content-center rounded-circle bg-light" style="width:70px; height:70px;">
+      <i class="bi bi-laptop fs-3"></i>
+    </div>
+    <h4 class="fw-bold mt-3">Frontend Development</h4>
+    <p>Modern, responsive, and pixel-perfect websites using HTML, CSS, JavaScript, and React.js.</p>
+   </div>
+  </div>
+
+
+     <!-- Service Item 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="service-box shadow p-4 rounded text-center">
+          <div class="icon mb-3 text-primary">
+            <i class="bi bi-broadcast fs-3"></i>
+          </div>
+          <h4 class="fw-bold">Eosle Commodi</h4>
+          <p>Ut autem aut autem non a. Sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+        </div>
+      </div>
+
+
+      <!-- Service Item 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="service-box shadow p-4 rounded text-center">
+          <div class="icon mb-3 text-primary">
+            <i class="bi bi-easel fs-3"></i>
+          </div>
+          <h4 class="fw-bold">Ledo Markt</h4>
+          <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+        </div>
+      </div>
+
+      <!-- Service Item 4 -->
+      <div class="col-md-4 mb-4">
+        <div class="service-box shadow p-4 rounded text-center">
+          <div class="icon mb-3 text-primary">
+            <i class="bi bi-bounding-box fs-3"></i>
+          </div>
+          <h4 class="fw-bold">Asperiores Commodit</h4>
+          <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
+        </div>
+      </div>
+
+      <!-- Service Item 5 -->
+      <div class="col-md-4 mb-4">
+        <div class="service-box shadow p-4 rounded text-center">
+          <div class="icon mb-3 text-primary">
+            <i class="bi bi-calendar4-week fs-3"></i>
+          </div>
+          <h4 class="fw-bold">Velit Doloremque</h4>
+          <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
+        </div>
+      </div>
+
+      <!-- Service Item 6 -->
+      <div class="col-md-4 mb-4">
+        <div class="service-box shadow p-4 rounded text-center">
+          <div class="icon mb-3 text-primary">
+            <i class="bi bi-chat-square-text fs-3"></i>
+          </div>
+          <h4 class="fw-bold">Dolori Architecto</h4>
+          <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Services Section -->
+
+        </div>
+      </div>
+    
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+      const progressBars = document.querySelectorAll('.progress-bar');
+
+      function showProgress() {
+        progressBars.forEach(bar => {
+          const value = bar.getAttribute('data-width');
+          const position = bar.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight;
+
+          if (position < screenPosition) {
+            bar.style.width = value + '%';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', showProgress);
+    </script>
+  </body>
+</html>
